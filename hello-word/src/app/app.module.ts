@@ -22,7 +22,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     CoursesService,
