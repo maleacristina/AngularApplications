@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = ' Cristina Angular app';
+  // post = {
+  //   title: "Title",
+  //   isFavourite: true
+  // }
+
+  // onFavoriteChanged(isFavorite){
+  //   console.log("Favorite changed: ", isFavorite);
+  tweet = {
+    body: '...',
+    likeCount: 10,
+    isLiked: true
+  }
 }

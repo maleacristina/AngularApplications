@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-course',
+  // tslint:disable-next-line:component-selector
+  selector: 'courses',
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
-export class CourseComponent implements OnInit {
+export class CoursesComponent implements OnInit {
+  isFavorite: boolean;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClick() { 
+    this.isFavorite = !this.isFavorite;
+  }
 }

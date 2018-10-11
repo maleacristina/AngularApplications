@@ -1,7 +1,6 @@
-<i 
-class="fa fa-star fa-5x" aria-hidden="true"> </i>  
-
-
-
-<!-- <span class="glyphicon glyphicon-star" aria-hidden="true"></span>  -->
-
+<span 
+  class="glyphicon"
+  [class.glyphicon-star]="isFavorite"
+  [class.glyphicon-star-empty]="!isFavorite"
+  (click)="onClick()"
+  ></span>

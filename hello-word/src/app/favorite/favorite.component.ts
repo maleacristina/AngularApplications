@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.css']
 })
-
 export class FavoriteComponent implements OnInit {
   isFavorite: boolean;
+
   constructor() { }
 
   ngOnInit() {
