@@ -7,6 +7,11 @@ import {Component} from '@angular/core';
 
 export class ProductListComponent {
     pageTitle = 'Product List';
+    // tslint:disable-next-line:no-inferrable-types
+    imageWidth: number = 50;
+    imageMargin = 2;
+    showImage = false;
+    listFilter = 'cart';
     products: any[] = [
         {
             'productId': 2,
@@ -29,6 +34,10 @@ export class ProductListComponent {
             'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png'
         }
     ];
+
+    toggleImage(): void {
+        this.showImage = !this.showImage;
+    }
 
 
 }
