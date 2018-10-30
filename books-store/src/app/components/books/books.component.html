@@ -1,7 +1,3 @@
 <ul>
-  <li *ngFor="let book of books | async">{{book | json}}</li> 
-</ul>
-
-<ul>
-  <li *ngFor="let book of allBooks | async">Book title: {{book.title}}</li> 
+  <li *ngFor="let book of allBooks">Book title: {{book.title}}</li> 
 </ul>

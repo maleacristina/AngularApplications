@@ -25,6 +25,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
+// Service
+import { FirebaseService } from './services/firebase.service';
+
 const appRoutes: Routes = [
    {path: '', component: HomeComponent},
    {path: 'books', component: BooksComponent},
@@ -53,7 +56,7 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

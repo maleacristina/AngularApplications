@@ -1,7 +1,7 @@
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { FirebaseService } from './../../services/firebase.service';
+// import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-// import 'rxjs/add/operator/map';
+// import { Observable } from 'rxjs';
 
 
 @Component({
@@ -11,19 +11,16 @@ import { Observable } from 'rxjs';
 })
 export class BooksComponent implements OnInit {
 
-  books: Observable<any[]>;
+  // books: Observable<any[]>;
   allBooks: any;
 
-  constructor(db: AngularFireDatabase) {
-    this.books = db.list('/books').valueChanges();
-    this.books.subscribe (books => {
-      this.allBooks = books;
-      // console.log(this.allBooks);
-    });
-     // console.log(this.books);
+  constructor(private firebaseService: FirebaseService) {
    }
 
   ngOnInit() {
+    this.firebaseService.getBooks().subscribe(books => {
+      this.allBooks = books;
+    });
   }
 
 }
