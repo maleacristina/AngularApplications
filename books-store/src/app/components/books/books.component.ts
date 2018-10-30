@@ -1,5 +1,7 @@
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+// import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -8,15 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-  books: AngularFireList<any[]>;
+
+  books: Observable<any[]>;
   allBooks: any;
+
   constructor(db: AngularFireDatabase) {
-    this.books = db.list('/books');
-    this.books.valueChanges().subscribe (books => {
+    this.books = db.list('/books').valueChanges();
+    this.books.subscribe (books => {
       this.allBooks = books;
-      console.log(this.allBooks);
+      // console.log(this.allBooks);
     });
-    console.log(this.books);
+     // console.log(this.books);
    }
 
   ngOnInit() {
