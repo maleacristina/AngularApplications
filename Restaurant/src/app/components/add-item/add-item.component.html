@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Add Item</span>
+    <form (ngSubmit)="onSubmit()" class="col s6">
+        <div class="row">
+            <div class="input-field col s6">
+              <input type="text" placeholder="Add Name" [(ngModel)]="item.name" name="title">           
+            </div>
+            <div class="input-field col s6">
+              <input type="text" placeholder="Add Price" [(ngModel)]="item.price" name="price" >
+              <strong>RON</strong>   
+            </div>
+
+            <div class="input-field col s6">
+              <input type="date"  placeholder="Add Day 1" [(ngModel)]="item.days[0]" name="day1">
+            </div>
+            <div class="input-field col s6">
+              <input type="text" bsDatepicker placeholder="Add Day 2" [(ngModel)]="item.days[1]" name="day2">
+            </div>
+
+            <input type="submit" value="Submit" class="btn">
+    </div>
+    </form>
+  </div>
+</div>
