@@ -1,0 +1,23 @@
+<h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
+
+<div *ngIf="!(authService.user | async)">
+  <input type="text" [(ngModel)]= "email" placeholder="email"><br><br>
+  <input type="password" [(ngModel)]= "password" placeholder="password"><br><br>
+
+  <button (click)="signup()" [disabled]="!email || !password">
+    Signup
+  </button>
+
+  <button (click)="login()" [disabled]="!email || !password" >
+    Login
+  </button>
+
+ <!--  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    This is an alert box.
+  </div> -->
+</div>
+
+<button (click)="logout()" *ngIf="authService.user | async">
+  Logout
+</button>
