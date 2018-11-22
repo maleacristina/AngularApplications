@@ -15,7 +15,18 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 
 // Material design modules
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule,
+  MatCheckboxModule,
+  MatCardModule,
+  MatGridListModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatToolbarModule,
+  MatProgressSpinnerModule,
+  MatTabsModule,
+  MatListModule,
+  MatIconModule } from '@angular/material';
 
 // Routes
 import { Routes, RouterModule } from '@angular/router';
@@ -52,6 +63,17 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     MatButtonModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatGridListModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatListModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase, 'books-store-app'),
     AngularFireDatabaseModule,
     RouterModule.forRoot(appRoutes)

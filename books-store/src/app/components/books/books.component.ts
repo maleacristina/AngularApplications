@@ -1,7 +1,7 @@
 import { FirebaseService } from './../../services/firebase.service';
-// import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
-// import { Observable } from 'rxjs';
+ import { Observable } from 'rxjs';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit {
 
-  // books: Observable<any[]>;
+  books: Observable<any[]>;
   allBooks: any;
 
   constructor(private firebaseService: FirebaseService) {
