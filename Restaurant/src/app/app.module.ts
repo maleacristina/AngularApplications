@@ -19,12 +19,12 @@ import { AuthComponent } from './components/auth/auth.component';
 
 
 // Routes
-/* import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
   {path: 'auth', component: AuthComponent},
   {path: 'add-item', component: AddItemComponent},
   {path: 'items', component: ItemsComponent},
-]; */
+];
 
 @NgModule({
   declarations: [
@@ -40,8 +40,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
     AngularFirestoreModule,
     BsDatepickerModule.forRoot(),
-    AngularFireAuthModule
-    /* RouterModule.forRoot(appRoutes) */
+    AngularFireAuthModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     ItemService,
