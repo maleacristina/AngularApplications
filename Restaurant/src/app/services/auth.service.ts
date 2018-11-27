@@ -4,13 +4,17 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+  // isUserLoggedIn: boolean;
 
-  constructor(private firebaseAuth: AngularFireAuth) {
+  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = firebaseAuth.authState;
+    // this.isUserLoggedIn = false;
+
   }
 
   signup(email: string, password: string) {
@@ -22,7 +26,6 @@ export class AuthService {
       })
       .catch(err => {
         console.log('Something went wrong:', err.message);
-        // window.alert('Something went wrong');
       });
   }
 
@@ -32,11 +35,20 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Nice, it worked!');
+        // this.router.navigate(['/items']);
       })
       .catch(err => {
         console.log('Something went wrong:', err.message);
+        // alert('I am an alert box!');
+        window.alert('Invalid email or password');
       });
   }
+/*   setUserLoggedIn() {
+    this.isUserLoggedIn = true;
+  }
+  getUserLoggedIn() {
+    return this.isUserLoggedIn;
+  } */
 
   logout() {
     this.firebaseAuth

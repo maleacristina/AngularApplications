@@ -1,18 +1,44 @@
-<h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
+<div class="container">
+  <div class="col-6 offset-3 text-center">  
+  <h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!
+    <a [routerLink]="['/items']"> List of items</a> &nbsp;
+    <a [routerLink]="['/add-item']"> Add product</a></h1>
+  <!-- <h1 *ngIf="authService.user | async" [routerLink]="['/items']">Soups</h1> -->
 
-<div *ngIf="!(authService.user | async)">
-  <input type="text" [(ngModel)]="email" placeholder="Email">
-  <input type="password" [(ngModel)]="password" placeholder="Password">
+  <div class="dropdown">
+  <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Categorii
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a [routerLink]="['/items']">HTML</a></li>
+      <li><a  [routerLink]="['/items']">CSS</a></li>
+      <li><a  [routerLink]="['/items']">JavaScript</a></li>
+    </ul>
+  </div>
 
-  <button (click)="signup()" [disabled]="!email || !password">
+
+<div *ngIf="!(authService.user | async)">  
+  <input type="email" class="form-control" [(ngModel)]="email" placeholder="Enter email" required>
+  <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" required>
+  
+  <!-- <button (click)="signup()" [disabled]="!email || !password">
     Signup
-  </button>
+  </button> -->
 
-  <button (click)="login()" [disabled]="!email || !password">
+  <button class="btn btn-success" (click)="login()">
     Login
   </button>
-</div>
 
-<button (click)="logout()" *ngIf="authService.user | async">
+</div>
+<div class="logout">
+<button class="btn btn-danger" (click)="logout()" *ngIf="authService.user | async">
   Logout
 </button>
+</div>
+
+  </div>
+</div>
+
+
+<!-- <a routerLink="/forgotpass" class="alc">Forgot password?</a> -->
+
+

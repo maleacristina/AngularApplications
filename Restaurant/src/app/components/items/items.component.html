@@ -1,11 +1,13 @@
+<div class="container">
+  <div class="text-center">
 <div *ngIf ="items?.length > 0;else noItems">
    <ul *ngFor="let item of items" class="collection"> 
       <li  class="collection-item"><strong>{{item.name}}: </strong>{{item.price}} RON <br>Ziua1: {{item.days[0]}} <br> Ziua2: {{item.days[1]}}
-        <a href="#" class="secondary-content">
+        <!-- <a href="#" class="secondary-content"> -->
             <i (click)="editItem($event, item)" class="fa fa-pencil"></i>  
             <i *ngIf="editState && itemToEdit.id == item.id" (click)="clearState()" class="fa fa-compress"></i> 
             
-         </a>
+        <!--  </a> -->
         <div *ngIf="editState && itemToEdit.id == item.id">
            <form (ngSubmit)="updateItem(item)">
                 <div class="row">
@@ -37,3 +39,5 @@
    <hr>
    <h5>There are no items to list</h5>
 </ng-template>
+</div>
+</div>

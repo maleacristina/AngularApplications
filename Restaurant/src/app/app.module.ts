@@ -20,8 +20,11 @@ import { AuthComponent } from './components/auth/auth.component';
 
 // Routes
 import { Routes, RouterModule } from '@angular/router';
+// import { AuthguardGuard } from './authguard.guard';
 const appRoutes: Routes = [
-  {path: 'auth', component: AuthComponent},
+  /* {path: '', redirectTo: 'auth', pathMatch: 'full' },
+  {path: 'auth', component: AuthComponent}, */
+  {path: 'navbar', component: NavbarComponent},
   {path: 'add-item', component: AddItemComponent},
   {path: 'items', component: ItemsComponent},
 ];
@@ -45,7 +48,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     ItemService,
-    AuthService
+    AuthService,
+    // AuthguardGuard
   ],
   bootstrap: [AppComponent]
 })

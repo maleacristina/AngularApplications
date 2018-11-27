@@ -1,6 +1,7 @@
 import { ItemService } from './../../services/item.service';
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/Item';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-add-item',
@@ -13,7 +14,7 @@ export class AddItemComponent implements OnInit {
     price: 0,
     days: []
   };
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private user: AuthService) { }
 
   ngOnInit() {
   }

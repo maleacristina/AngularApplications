@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from 'src/app/models/item';
 import { TouchSequence } from 'selenium-webdriver';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-items',
@@ -13,7 +14,7 @@ export class ItemsComponent implements OnInit {
   editState =  false;
   itemToEdit: Item;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private authService: AuthService) { }
 
   ngOnInit() {
    this.itemService.getItems().subscribe(items => {
