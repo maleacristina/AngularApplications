@@ -3,6 +3,7 @@ import { ItemService } from '../../services/item.service';
 import { Item } from 'src/app/models/item';
 import { TouchSequence } from 'selenium-webdriver';
 import { AuthService } from 'src/app/services/auth.service';
+import { Soup } from 'src/app/models/soup';
 
 @Component({
   selector: 'app-items',
@@ -11,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ItemsComponent implements OnInit {
   items: Item[];
+  // soups: Soup[];
   editState =  false;
   itemToEdit: Item;
 
@@ -21,6 +23,8 @@ export class ItemsComponent implements OnInit {
     // console.log(items);
     this.items = items;
   });
+
+
   }
   deleteItem(event, item: Item) {
   this.clearState();

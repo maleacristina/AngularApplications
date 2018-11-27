@@ -50,6 +50,14 @@ export class AuthService {
     return this.isUserLoggedIn;
   } */
 
+  isLoggedIn() {
+    if (this.user == null ) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
   logout() {
     this.firebaseAuth
       .auth

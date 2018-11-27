@@ -1,3 +1,4 @@
+import { AuthGuardService } from './services/auth-guard.service';
 import { ItemService } from './services/item.service';
 import { AuthService } from './services/auth.service';
 import { environment } from '../environments/environment';
@@ -9,6 +10,7 @@ import { AngularFireModule } from 'angularfire2';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+// import {MatButtonModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './components/items/items.component';
@@ -19,14 +21,14 @@ import { AuthComponent } from './components/auth/auth.component';
 
 
 // Routes
-import { Routes, RouterModule } from '@angular/router';
-// import { AuthguardGuard } from './authguard.guard';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+
 const appRoutes: Routes = [
-  /* {path: '', redirectTo: 'auth', pathMatch: 'full' },
-  {path: 'auth', component: AuthComponent}, */
-  {path: 'navbar', component: NavbarComponent},
-  {path: 'add-item', component: AddItemComponent},
-  {path: 'items', component: ItemsComponent},
+  // {path: '', redirectTo: 'auth', pathMatch: 'full' },
+  {path: '', component: AuthComponent},
+  // {path: 'navbar', component: NavbarComponent},
+  {path: 'add-item', canActivate: [AuthGuardService], component: AddItemComponent},
+  {path: 'items', canActivate: [AuthGuardService], component: ItemsComponent},
 ];
 
 @NgModule({
@@ -44,12 +46,13 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     BsDatepickerModule.forRoot(),
     AngularFireAuthModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    // MatButtonModule
   ],
   providers: [
     ItemService,
     AuthService,
-    // AuthguardGuard
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

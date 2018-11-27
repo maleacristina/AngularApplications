@@ -1,19 +1,24 @@
 <div class="container">
   <div class="col-6 offset-3 text-center">  
-  <h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!
+  <div *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!
     <a [routerLink]="['/items']"> List of items</a> &nbsp;
-    <a [routerLink]="['/add-item']"> Add product</a></h1>
+    <a [routerLink]="['/add-item']"> Add product</a>
+
+    <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Categorii
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/items']">Ciorbe</a></li>
+            <li><a [routerLink]="['/items']">Desert</a></li>
+          </ul>
+        </div>
+
+  </div>
   <!-- <h1 *ngIf="authService.user | async" [routerLink]="['/items']">Soups</h1> -->
 
-  <div class="dropdown">
-  <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Categorii
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a [routerLink]="['/items']">HTML</a></li>
-      <li><a  [routerLink]="['/items']">CSS</a></li>
-      <li><a  [routerLink]="['/items']">JavaScript</a></li>
-    </ul>
-  </div>
+ 
+ 
+ 
 
 
 <div *ngIf="!(authService.user | async)">  
