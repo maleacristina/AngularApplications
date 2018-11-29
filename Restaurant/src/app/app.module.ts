@@ -26,7 +26,7 @@ import { Routes, RouterModule, CanActivate } from '@angular/router';
 const appRoutes: Routes = [
   // {path: '', redirectTo: 'auth', pathMatch: 'full' },
   {path: '', component: AuthComponent},
-  // {path: 'navbar', component: NavbarComponent},
+  {path: 'navbar', component: NavbarComponent},
   {path: 'add-item', canActivate: [AuthGuardService], component: AddItemComponent},
   {path: 'items', canActivate: [AuthGuardService], component: ItemsComponent},
 ];

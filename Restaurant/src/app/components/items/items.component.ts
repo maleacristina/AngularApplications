@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from 'src/app/models/item';
-import { TouchSequence } from 'selenium-webdriver';
 import { AuthService } from 'src/app/services/auth.service';
-import { Soup } from 'src/app/models/soup';
 
 @Component({
   selector: 'app-items',
@@ -15,19 +13,19 @@ export class ItemsComponent implements OnInit {
   // soups: Soup[];
   editState =  false;
   itemToEdit: Item;
+  /* category: string;
+  filteredCategory: any; */
 
   constructor(private itemService: ItemService, private authService: AuthService) { }
 
   ngOnInit() {
    this.itemService.getItems().subscribe(items => {
-    // console.log(items);
-    this.items = items;
+   // console.log(items);
+   this.items = items;
   });
-
-
-  }
-  deleteItem(event, item: Item) {
-  this.clearState();
+}
+ deleteItem(event, item: Item) {
+   this.clearState();
    this.itemService.deleteItem(item);
   }
 
@@ -45,6 +43,4 @@ export class ItemsComponent implements OnInit {
     this.editState = false;
     this.itemToEdit = null;
   }
-
-
 }

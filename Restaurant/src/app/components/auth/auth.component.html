@@ -4,22 +4,23 @@
     <a [routerLink]="['/items']"> List of items</a> &nbsp;
     <a [routerLink]="['/add-item']"> Add product</a>
 
-    <div class="dropdown">
+   <!--  <div class="dropdown">
         <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Categorii
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><a [routerLink]="['/items']">Ciorbe</a></li>
-            <li><a [routerLink]="['/items']">Desert</a></li>
+            <li>Ciorbe</li>
+            <li>Desert</li>
+            <li>Salate</li>
           </ul>
-        </div>
+        </div> -->
+
+      
 
   </div>
   <!-- <h1 *ngIf="authService.user | async" [routerLink]="['/items']">Soups</h1> -->
 
  
  
- 
-
 
 <div *ngIf="!(authService.user | async)">  
   <input type="email" class="form-control" [(ngModel)]="email" placeholder="Enter email" required>

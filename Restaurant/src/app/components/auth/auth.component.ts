@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding} from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+
 import { AngularFireModule } from 'angularfire2';
 import { Router } from '@angular/router';
 
@@ -15,7 +16,7 @@ export class AuthComponent implements OnInit {
   password: string;
   // isUserLoggedIn: boolean;
 
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
 
   }
 

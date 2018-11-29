@@ -14,7 +14,7 @@ export class AddItemComponent implements OnInit {
     price: 0,
     days: []
   };
-  constructor(private itemService: ItemService, private user: AuthService) { }
+  constructor(private itemService: ItemService, public authService: AuthService) { }
 
   ngOnInit() {
   }
