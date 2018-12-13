@@ -15,7 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 
 // Material design modules
-import { MatButtonModule,
+import { 
+  MatButtonModule,
   MatCheckboxModule,
   MatCardModule,
   MatGridListModule,

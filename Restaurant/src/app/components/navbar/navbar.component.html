@@ -1,30 +1,49 @@
-<nav class="nav-wrapper black">
+<!-- <nav class="nav-wrapper black">
       <li class="nav-item dropdown">
-          <div *ngIf ="categories?.length > 0">
-              <div *ngFor="let category of categories">
-                  <a class="nav-link dropdown-toggle"  href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
-                   Categorii
-                  </a>
-              <div class="dropdown-menu" [(ngModel)]="categories" (click)="getCategories()" aria-labelledby="navbarDropdownMenuLink">
-               <!--  <a  class="dropdown-item" value="soup" href="">Ciorbe</a>
-                <a  class="dropdown-item" value="dessert" href="">Desert</a>
-                <a  class="dropdown-item" value="salad" href="">Salata</a>  -->
-                <option value="soup">Ciorbe</option>
-                <option value="dessert">Desert</option>
-                <option value="salad">Salate</option>
-              </div>
-             
-              </div>
-              <h6>{{category.name}}</h6>
-         </div>   
-               
-      </li>
-     
-</nav> 
+          
+                    <a class="nav-link dropdown-toggle"  href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
+                        Categorii
+                       </a>
+                       <div *ngIf ="categories?.length > 0">
+                       <div *ngFor="let category of categories">
+                          <div  class="collection-category">
+                           
+                              <div class="dropdown-menu" (change)="getCategories()"  [(ngModel)]="category.name"  aria-labelledby="navbarDropdownMenuLink">
+                   
+                              <option value="soup" >Ciorbe</option>
+                              <strong>{{category.name}}: </strong>
+                              <option value="dessert">Desert</option>
+                              <strong>{{category.name}}: </strong>
+                              <option value="salad">Salate</option>
+                              <strong>{{category.name}}: </strong>
+                              </div>
+                    </div>                                
+              </div>             
+              </div>     
+      </li>   
+</nav>  -->
+
+<!-- <div *ngIf ="categories?.length > 0">
+  <div *ngFor="let category of categories"> 
+    
+        <button (click)="getCategories()" value="soup" class="btn red" >Ciorbe</button> <br>
+        <button (click)="getCategories()" value="desert" class="btn red" >Desert</button>  
+
+        <strong>{{category.name}} </strong> 
+ </div>
+</div>   -->
+ 
+<ul *ngFor="let category  of categories | async" class="collection">
+  <li class="collection-item"><strong>{{ category.name}}</strong>
+    <i (click)="getCategories()" class=""></i> 
+  </li>
+</ul>
 
 
 
-<!-- <h4>Categories</h4>
+
+
+ <!-- <h4>Categories</h4>
   <select [(ngModel)]="categories" (click)="getCategories()">
     <option value="soup">Ciorbe</option>
     <option value="dessert">Desert</option>
@@ -33,4 +52,9 @@
 
   <div *ngFor="let category of categories">
     <h6>{{category.name}}</h6>
-  </div> -->
+  </div>  -->
+ 
+
+   <!--  <a  class="dropdown-item" value="soup" href="">Ciorbe</a>
+                     <a  class="dropdown-item" value="dessert" href="">Desert</a>
+                     <a  class="dropdown-item" value="salad" href="">Salata</a>  -->
